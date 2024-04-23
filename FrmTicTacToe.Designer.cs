@@ -38,12 +38,12 @@
             this.panelCell2_1 = new System.Windows.Forms.Panel();
             this.panelCell2_2 = new System.Windows.Forms.Panel();
             this.labelNewGameTitle = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelPlayer1Name = new System.Windows.Forms.Label();
+            this.labelPlayer2Name = new System.Windows.Forms.Label();
+            this.labelPlayer1Score = new System.Windows.Forms.Label();
+            this.labelPlayer2Score = new System.Windows.Forms.Label();
+            this.labelNowTurnls = new System.Windows.Forms.Label();
+            this.labelWhooseTurn = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panelCell0_0
@@ -121,82 +121,92 @@
             // labelNewGameTitle
             // 
             this.labelNewGameTitle.AutoSize = true;
-            this.labelNewGameTitle.Font = new System.Drawing.Font("Franklin Gothic Medium", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNewGameTitle.Font = new System.Drawing.Font("Franklin Gothic Medium", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNewGameTitle.ForeColor = System.Drawing.Color.White;
             this.labelNewGameTitle.Location = new System.Drawing.Point(359, 71);
             this.labelNewGameTitle.Name = "labelNewGameTitle";
-            this.labelNewGameTitle.Size = new System.Drawing.Size(219, 47);
+            this.labelNewGameTitle.Size = new System.Drawing.Size(186, 39);
             this.labelNewGameTitle.TabIndex = 9;
             this.labelNewGameTitle.Text = "New Game:";
             // 
-            // label2
+            // labelPlayer1Name
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(327, 255);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 38);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Player: ";
+            this.labelPlayer1Name.AutoSize = true;
+            this.labelPlayer1Name.Font = new System.Drawing.Font("Franklin Gothic Medium", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayer1Name.ForeColor = System.Drawing.Color.White;
+            this.labelPlayer1Name.Location = new System.Drawing.Point(327, 255);
+            this.labelPlayer1Name.Name = "labelPlayer1Name";
+            this.labelPlayer1Name.Size = new System.Drawing.Size(87, 29);
+            this.labelPlayer1Name.TabIndex = 10;
+            this.labelPlayer1Name.Text = "Player: ";
             // 
-            // label3
+            // labelPlayer2Name
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(514, 296);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 16);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "label3";
+            this.labelPlayer2Name.AutoSize = true;
+            this.labelPlayer2Name.Font = new System.Drawing.Font("Franklin Gothic Medium", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayer2Name.ForeColor = System.Drawing.Color.White;
+            this.labelPlayer2Name.Location = new System.Drawing.Point(327, 292);
+            this.labelPlayer2Name.Name = "labelPlayer2Name";
+            this.labelPlayer2Name.Size = new System.Drawing.Size(115, 29);
+            this.labelPlayer2Name.TabIndex = 11;
+            this.labelPlayer2Name.Text = "Computer:";
             // 
-            // label4
+            // labelPlayer1Score
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(462, 68);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 16);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "label4";
+            this.labelPlayer1Score.AutoSize = true;
+            this.labelPlayer1Score.Font = new System.Drawing.Font("Franklin Gothic Medium", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayer1Score.ForeColor = System.Drawing.Color.Gold;
+            this.labelPlayer1Score.Location = new System.Drawing.Point(532, 255);
+            this.labelPlayer1Score.Name = "labelPlayer1Score";
+            this.labelPlayer1Score.Size = new System.Drawing.Size(26, 29);
+            this.labelPlayer1Score.TabIndex = 12;
+            this.labelPlayer1Score.Text = "0";
             // 
-            // label5
+            // labelPlayer2Score
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(376, 114);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 16);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "label5";
+            this.labelPlayer2Score.AutoSize = true;
+            this.labelPlayer2Score.Font = new System.Drawing.Font("Franklin Gothic Medium", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayer2Score.ForeColor = System.Drawing.Color.Fuchsia;
+            this.labelPlayer2Score.Location = new System.Drawing.Point(532, 292);
+            this.labelPlayer2Score.Name = "labelPlayer2Score";
+            this.labelPlayer2Score.Size = new System.Drawing.Size(26, 29);
+            this.labelPlayer2Score.TabIndex = 13;
+            this.labelPlayer2Score.Text = "0";
             // 
-            // label6
+            // labelNowTurnls
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(472, 114);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 16);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "label6";
+            this.labelNowTurnls.AutoSize = true;
+            this.labelNowTurnls.Font = new System.Drawing.Font("Franklin Gothic Medium", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNowTurnls.ForeColor = System.Drawing.Color.White;
+            this.labelNowTurnls.Location = new System.Drawing.Point(327, 331);
+            this.labelNowTurnls.Name = "labelNowTurnls";
+            this.labelNowTurnls.Size = new System.Drawing.Size(71, 29);
+            this.labelNowTurnls.TabIndex = 14;
+            this.labelNowTurnls.Text = "Move:";
             // 
-            // label7
+            // labelWhooseTurn
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(379, 156);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 16);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "label7";
+            this.labelWhooseTurn.AutoSize = true;
+            this.labelWhooseTurn.Font = new System.Drawing.Font("Franklin Gothic Medium", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWhooseTurn.ForeColor = System.Drawing.Color.White;
+            this.labelWhooseTurn.Location = new System.Drawing.Point(413, 331);
+            this.labelWhooseTurn.Name = "labelWhooseTurn";
+            this.labelWhooseTurn.Size = new System.Drawing.Size(25, 29);
+            this.labelWhooseTurn.TabIndex = 15;
+            this.labelWhooseTurn.Text = "?";
             // 
             // FrmTicTacToe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(585, 327);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(585, 366);
+            this.Controls.Add(this.labelWhooseTurn);
+            this.Controls.Add(this.labelNowTurnls);
+            this.Controls.Add(this.labelPlayer2Score);
+            this.Controls.Add(this.labelPlayer1Score);
+            this.Controls.Add(this.labelPlayer2Name);
+            this.Controls.Add(this.labelPlayer1Name);
             this.Controls.Add(this.labelNewGameTitle);
             this.Controls.Add(this.panelCell2_2);
             this.Controls.Add(this.panelCell2_1);
@@ -228,12 +238,12 @@
         private System.Windows.Forms.Panel panelCell2_1;
         private System.Windows.Forms.Panel panelCell2_2;
         private System.Windows.Forms.Label labelNewGameTitle;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelPlayer1Name;
+        private System.Windows.Forms.Label labelPlayer2Name;
+        private System.Windows.Forms.Label labelPlayer1Score;
+        private System.Windows.Forms.Label labelPlayer2Score;
+        private System.Windows.Forms.Label labelNowTurnls;
+        private System.Windows.Forms.Label labelWhooseTurn;
     }
 }
 
