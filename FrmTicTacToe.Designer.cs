@@ -44,6 +44,21 @@
             this.labelPlayer2Score = new System.Windows.Forms.Label();
             this.labelNowTurnls = new System.Windows.Forms.Label();
             this.labelWhooseTurn = new System.Windows.Forms.Label();
+            this.panelReset = new System.Windows.Forms.Panel();
+            this.labelReset = new System.Windows.Forms.Label();
+            this.panelNewGame = new System.Windows.Forms.Panel();
+            this.labelNewGame = new System.Windows.Forms.Label();
+            this.panelPlayerVsCpu = new System.Windows.Forms.Panel();
+            this.labelPlayerVsCpu = new System.Windows.Forms.Label();
+            this.panelPlayerVsPlayer = new System.Windows.Forms.Panel();
+            this.labelPlayerVsPlayer = new System.Windows.Forms.Label();
+            this.panelCloseButton = new System.Windows.Forms.Panel();
+            this.labelClose = new System.Windows.Forms.Label();
+            this.panelReset.SuspendLayout();
+            this.panelNewGame.SuspendLayout();
+            this.panelPlayerVsCpu.SuspendLayout();
+            this.panelPlayerVsPlayer.SuspendLayout();
+            this.panelCloseButton.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelCell0_0
@@ -125,7 +140,7 @@
             this.labelNewGameTitle.ForeColor = System.Drawing.Color.White;
             this.labelNewGameTitle.Location = new System.Drawing.Point(359, 71);
             this.labelNewGameTitle.Name = "labelNewGameTitle";
-            this.labelNewGameTitle.Size = new System.Drawing.Size(186, 39);
+            this.labelNewGameTitle.Size = new System.Drawing.Size(179, 38);
             this.labelNewGameTitle.TabIndex = 9;
             this.labelNewGameTitle.Text = "New Game:";
             // 
@@ -195,12 +210,118 @@
             this.labelWhooseTurn.TabIndex = 15;
             this.labelWhooseTurn.Text = "?";
             // 
+            // panelReset
+            // 
+            this.panelReset.BackColor = System.Drawing.Color.SlateBlue;
+            this.panelReset.Controls.Add(this.labelReset);
+            this.panelReset.Location = new System.Drawing.Point(327, 12);
+            this.panelReset.Name = "panelReset";
+            this.panelReset.Size = new System.Drawing.Size(61, 38);
+            this.panelReset.TabIndex = 16;
+            // 
+            // labelReset
+            // 
+            this.labelReset.AutoSize = true;
+            this.labelReset.BackColor = System.Drawing.Color.SlateBlue;
+            this.labelReset.Font = new System.Drawing.Font("Franklin Gothic Medium", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelReset.ForeColor = System.Drawing.Color.Cyan;
+            this.labelReset.Location = new System.Drawing.Point(4, 9);
+            this.labelReset.Name = "labelReset";
+            this.labelReset.Size = new System.Drawing.Size(52, 21);
+            this.labelReset.TabIndex = 17;
+            this.labelReset.Text = "Reset";
+            // 
+            // panelNewGame
+            // 
+            this.panelNewGame.BackColor = System.Drawing.Color.SlateBlue;
+            this.panelNewGame.Controls.Add(this.labelNewGame);
+            this.panelNewGame.Location = new System.Drawing.Point(394, 12);
+            this.panelNewGame.Name = "panelNewGame";
+            this.panelNewGame.Size = new System.Drawing.Size(98, 38);
+            this.panelNewGame.TabIndex = 17;
+            // 
+            // labelNewGame
+            // 
+            this.labelNewGame.AutoSize = true;
+            this.labelNewGame.Font = new System.Drawing.Font("Franklin Gothic Medium", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNewGame.ForeColor = System.Drawing.Color.Cyan;
+            this.labelNewGame.Location = new System.Drawing.Point(3, 9);
+            this.labelNewGame.Name = "labelNewGame";
+            this.labelNewGame.Size = new System.Drawing.Size(87, 21);
+            this.labelNewGame.TabIndex = 0;
+            this.labelNewGame.Text = "New game";
+            // 
+            // panelPlayerVsCpu
+            // 
+            this.panelPlayerVsCpu.BackColor = System.Drawing.Color.SlateBlue;
+            this.panelPlayerVsCpu.Controls.Add(this.labelPlayerVsCpu);
+            this.panelPlayerVsCpu.Location = new System.Drawing.Point(336, 114);
+            this.panelPlayerVsCpu.Name = "panelPlayerVsCpu";
+            this.panelPlayerVsCpu.Size = new System.Drawing.Size(236, 60);
+            this.panelPlayerVsCpu.TabIndex = 18;
+            // 
+            // labelPlayerVsCpu
+            // 
+            this.labelPlayerVsCpu.AutoSize = true;
+            this.labelPlayerVsCpu.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayerVsCpu.ForeColor = System.Drawing.Color.Cyan;
+            this.labelPlayerVsCpu.Location = new System.Drawing.Point(26, 20);
+            this.labelPlayerVsCpu.Name = "labelPlayerVsCpu";
+            this.labelPlayerVsCpu.Size = new System.Drawing.Size(179, 25);
+            this.labelPlayerVsCpu.TabIndex = 19;
+            this.labelPlayerVsCpu.Text = "Player vs Computer";
+            // 
+            // panelPlayerVsPlayer
+            // 
+            this.panelPlayerVsPlayer.BackColor = System.Drawing.Color.SlateBlue;
+            this.panelPlayerVsPlayer.Controls.Add(this.labelPlayerVsPlayer);
+            this.panelPlayerVsPlayer.Location = new System.Drawing.Point(336, 180);
+            this.panelPlayerVsPlayer.Name = "panelPlayerVsPlayer";
+            this.panelPlayerVsPlayer.Size = new System.Drawing.Size(236, 60);
+            this.panelPlayerVsPlayer.TabIndex = 19;
+            // 
+            // labelPlayerVsPlayer
+            // 
+            this.labelPlayerVsPlayer.AutoSize = true;
+            this.labelPlayerVsPlayer.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayerVsPlayer.ForeColor = System.Drawing.Color.Cyan;
+            this.labelPlayerVsPlayer.Location = new System.Drawing.Point(42, 20);
+            this.labelPlayerVsPlayer.Name = "labelPlayerVsPlayer";
+            this.labelPlayerVsPlayer.Size = new System.Drawing.Size(148, 25);
+            this.labelPlayerVsPlayer.TabIndex = 20;
+            this.labelPlayerVsPlayer.Text = "Player vs Player";
+            // 
+            // panelCloseButton
+            // 
+            this.panelCloseButton.BackColor = System.Drawing.Color.Indigo;
+            this.panelCloseButton.Controls.Add(this.labelClose);
+            this.panelCloseButton.Location = new System.Drawing.Point(520, 12);
+            this.panelCloseButton.Name = "panelCloseButton";
+            this.panelCloseButton.Size = new System.Drawing.Size(52, 42);
+            this.panelCloseButton.TabIndex = 20;
+            // 
+            // labelClose
+            // 
+            this.labelClose.AutoSize = true;
+            this.labelClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelClose.ForeColor = System.Drawing.Color.White;
+            this.labelClose.Location = new System.Drawing.Point(14, 11);
+            this.labelClose.Name = "labelClose";
+            this.labelClose.Size = new System.Drawing.Size(23, 22);
+            this.labelClose.TabIndex = 21;
+            this.labelClose.Text = "X";
+            // 
             // FrmTicTacToe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(585, 366);
+            this.Controls.Add(this.panelCloseButton);
+            this.Controls.Add(this.panelPlayerVsPlayer);
+            this.Controls.Add(this.panelPlayerVsCpu);
+            this.Controls.Add(this.panelNewGame);
+            this.Controls.Add(this.panelReset);
             this.Controls.Add(this.labelWhooseTurn);
             this.Controls.Add(this.labelNowTurnls);
             this.Controls.Add(this.labelPlayer2Score);
@@ -221,6 +342,16 @@
             this.Name = "FrmTicTacToe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TicTacToe";
+            this.panelReset.ResumeLayout(false);
+            this.panelReset.PerformLayout();
+            this.panelNewGame.ResumeLayout(false);
+            this.panelNewGame.PerformLayout();
+            this.panelPlayerVsCpu.ResumeLayout(false);
+            this.panelPlayerVsCpu.PerformLayout();
+            this.panelPlayerVsPlayer.ResumeLayout(false);
+            this.panelPlayerVsPlayer.PerformLayout();
+            this.panelCloseButton.ResumeLayout(false);
+            this.panelCloseButton.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,6 +375,16 @@
         private System.Windows.Forms.Label labelPlayer2Score;
         private System.Windows.Forms.Label labelNowTurnls;
         private System.Windows.Forms.Label labelWhooseTurn;
+        private System.Windows.Forms.Panel panelReset;
+        private System.Windows.Forms.Label labelReset;
+        private System.Windows.Forms.Panel panelNewGame;
+        private System.Windows.Forms.Label labelNewGame;
+        private System.Windows.Forms.Panel panelPlayerVsCpu;
+        private System.Windows.Forms.Label labelPlayerVsCpu;
+        private System.Windows.Forms.Panel panelPlayerVsPlayer;
+        private System.Windows.Forms.Label labelPlayerVsPlayer;
+        private System.Windows.Forms.Panel panelCloseButton;
+        private System.Windows.Forms.Label labelClose;
     }
 }
 
