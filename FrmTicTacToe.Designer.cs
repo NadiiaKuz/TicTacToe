@@ -68,6 +68,9 @@
             this.panelCell0_0.Name = "panelCell0_0";
             this.panelCell0_0.Size = new System.Drawing.Size(99, 96);
             this.panelCell0_0.TabIndex = 0;
+            this.panelCell0_0.Click += new System.EventHandler(this.panelCell0_0_Click);
+            this.panelCell0_0.MouseEnter += new System.EventHandler(this.panelCell0_0_MouseEnter);
+            this.panelCell0_0.MouseLeave += new System.EventHandler(this.panelCell0_0_MouseLeave);
             // 
             // panelCell0_1
             // 
@@ -76,6 +79,9 @@
             this.panelCell0_1.Name = "panelCell0_1";
             this.panelCell0_1.Size = new System.Drawing.Size(99, 96);
             this.panelCell0_1.TabIndex = 1;
+            this.panelCell0_1.Click += new System.EventHandler(this.panelCell0_1_Click);
+            this.panelCell0_1.MouseEnter += new System.EventHandler(this.panelCell0_1_MouseEnter);
+            this.panelCell0_1.MouseLeave += new System.EventHandler(this.panelCell0_1_MouseLeave);
             // 
             // panelCell0_2
             // 
@@ -84,6 +90,9 @@
             this.panelCell0_2.Name = "panelCell0_2";
             this.panelCell0_2.Size = new System.Drawing.Size(99, 96);
             this.panelCell0_2.TabIndex = 2;
+            this.panelCell0_2.Click += new System.EventHandler(this.panelCell0_2_Click);
+            this.panelCell0_2.MouseEnter += new System.EventHandler(this.panelCell0_2_MouseEnter);
+            this.panelCell0_2.MouseLeave += new System.EventHandler(this.panelCell0_2_MouseLeave);
             // 
             // panelCell1_0
             // 
@@ -92,6 +101,9 @@
             this.panelCell1_0.Name = "panelCell1_0";
             this.panelCell1_0.Size = new System.Drawing.Size(99, 96);
             this.panelCell1_0.TabIndex = 3;
+            this.panelCell1_0.Click += new System.EventHandler(this.panelCell1_0_Click);
+            this.panelCell1_0.MouseEnter += new System.EventHandler(this.panelCell1_0_MouseEnter);
+            this.panelCell1_0.MouseLeave += new System.EventHandler(this.panelCell1_0_MouseLeave);
             // 
             // panelCell1_1
             // 
@@ -100,6 +112,9 @@
             this.panelCell1_1.Name = "panelCell1_1";
             this.panelCell1_1.Size = new System.Drawing.Size(99, 96);
             this.panelCell1_1.TabIndex = 4;
+            this.panelCell1_1.Click += new System.EventHandler(this.panelCell1_1_Click);
+            this.panelCell1_1.MouseEnter += new System.EventHandler(this.panelCell1_1_MouseEnter);
+            this.panelCell1_1.MouseLeave += new System.EventHandler(this.panelCell1_1_MouseLeave);
             // 
             // panelCell1_2
             // 
@@ -108,6 +123,9 @@
             this.panelCell1_2.Name = "panelCell1_2";
             this.panelCell1_2.Size = new System.Drawing.Size(99, 96);
             this.panelCell1_2.TabIndex = 5;
+            this.panelCell1_2.Click += new System.EventHandler(this.panelCell1_2_Click);
+            this.panelCell1_2.MouseEnter += new System.EventHandler(this.panelCell1_2_MouseEnter);
+            this.panelCell1_2.MouseLeave += new System.EventHandler(this.panelCell1_2_MouseLeave);
             // 
             // panelCell2_0
             // 
@@ -116,6 +134,9 @@
             this.panelCell2_0.Name = "panelCell2_0";
             this.panelCell2_0.Size = new System.Drawing.Size(99, 96);
             this.panelCell2_0.TabIndex = 6;
+            this.panelCell2_0.Click += new System.EventHandler(this.panelCell2_0_Click);
+            this.panelCell2_0.MouseEnter += new System.EventHandler(this.panelCell2_0_MouseEnter);
+            this.panelCell2_0.MouseLeave += new System.EventHandler(this.panelCell2_0_MouseLeave);
             // 
             // panelCell2_1
             // 
@@ -124,6 +145,9 @@
             this.panelCell2_1.Name = "panelCell2_1";
             this.panelCell2_1.Size = new System.Drawing.Size(99, 96);
             this.panelCell2_1.TabIndex = 7;
+            this.panelCell2_1.Click += new System.EventHandler(this.panelCell2_1_Click);
+            this.panelCell2_1.MouseEnter += new System.EventHandler(this.panelCell2_1_MouseEnter);
+            this.panelCell2_1.MouseLeave += new System.EventHandler(this.panelCell2_1_MouseLeave);
             // 
             // panelCell2_2
             // 
@@ -132,6 +156,9 @@
             this.panelCell2_2.Name = "panelCell2_2";
             this.panelCell2_2.Size = new System.Drawing.Size(99, 96);
             this.panelCell2_2.TabIndex = 8;
+            this.panelCell2_2.Click += new System.EventHandler(this.panelCell2_2_Click);
+            this.panelCell2_2.MouseEnter += new System.EventHandler(this.panelCell2_2_MouseEnter);
+            this.panelCell2_2.MouseLeave += new System.EventHandler(this.panelCell2_2_MouseLeave);
             // 
             // labelNewGameTitle
             // 
