@@ -299,6 +299,9 @@
             this.panelCloseButton.Name = "panelCloseButton";
             this.panelCloseButton.Size = new System.Drawing.Size(52, 42);
             this.panelCloseButton.TabIndex = 20;
+            this.panelCloseButton.Click += new System.EventHandler(this.panelCloseButton_Click);
+            this.panelCloseButton.MouseEnter += new System.EventHandler(this.panelCloseButton_MouseEnter);
+            this.panelCloseButton.MouseLeave += new System.EventHandler(this.panelCloseButton_MouseLeave);
             // 
             // labelClose
             // 
@@ -310,6 +313,8 @@
             this.labelClose.Size = new System.Drawing.Size(23, 22);
             this.labelClose.TabIndex = 21;
             this.labelClose.Text = "X";
+            this.labelClose.Click += new System.EventHandler(this.labelClose_Click);
+            this.labelClose.MouseEnter += new System.EventHandler(this.labelClose_MouseEnter);
             // 
             // FrmTicTacToe
             // 
