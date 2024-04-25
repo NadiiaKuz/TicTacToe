@@ -252,7 +252,6 @@
             // labelReset
             // 
             this.labelReset.AutoSize = true;
-            this.labelReset.BackColor = System.Drawing.Color.SlateBlue;
             this.labelReset.Font = new System.Drawing.Font("Franklin Gothic Medium", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelReset.ForeColor = System.Drawing.Color.Cyan;
             this.labelReset.Location = new System.Drawing.Point(4, 9);
