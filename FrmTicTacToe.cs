@@ -276,5 +276,55 @@ namespace TicTacToe
             RegularButtonMouseOver(panelPlayerVsPlayer, labelPlayerVsPlayer);
         }
         #endregion
+
+        private void panelReset_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelReset_MouseEnter(object sender, EventArgs e)
+        {
+            RegularButtonMouseOver(panelReset, labelReset);
+        }
+
+        private void panelReset_MouseLeave(object sender, EventArgs e)
+        {
+            RegularButtonMouseOut(panelReset, labelReset);
+        }
+
+        private void labelReset_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelReset_MouseEnter(object sender, EventArgs e)
+        {
+            RegularButtonMouseOver(panelReset, labelReset);
+        }
+
+        private void panelNewGame_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelNewGame_MouseEnter(object sender, EventArgs e)
+        {
+            RegularButtonMouseOver(panelNewGame, labelNewGame);
+        }
+
+        private void panelNewGame_MouseLeave(object sender, EventArgs e)
+        {
+            RegularButtonMouseOut(panelNewGame, labelNewGame);
+        }
+
+        private void labelNewGame_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelNewGame_MouseEnter(object sender, EventArgs e)
+        {
+            RegularButtonMouseOver(panelNewGame, labelNewGame);
+        }
     }
 }

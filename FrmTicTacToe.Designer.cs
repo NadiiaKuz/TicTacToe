@@ -245,6 +245,9 @@
             this.panelReset.Name = "panelReset";
             this.panelReset.Size = new System.Drawing.Size(61, 38);
             this.panelReset.TabIndex = 16;
+            this.panelReset.Click += new System.EventHandler(this.panelReset_Click);
+            this.panelReset.MouseEnter += new System.EventHandler(this.panelReset_MouseEnter);
+            this.panelReset.MouseLeave += new System.EventHandler(this.panelReset_MouseLeave);
             // 
             // labelReset
             // 
@@ -257,6 +260,8 @@
             this.labelReset.Size = new System.Drawing.Size(52, 21);
             this.labelReset.TabIndex = 17;
             this.labelReset.Text = "Reset";
+            this.labelReset.Click += new System.EventHandler(this.labelReset_Click);
+            this.labelReset.MouseEnter += new System.EventHandler(this.labelReset_MouseEnter);
             // 
             // panelNewGame
             // 
@@ -266,6 +271,9 @@
             this.panelNewGame.Name = "panelNewGame";
             this.panelNewGame.Size = new System.Drawing.Size(98, 38);
             this.panelNewGame.TabIndex = 17;
+            this.panelNewGame.Click += new System.EventHandler(this.panelNewGame_Click);
+            this.panelNewGame.MouseEnter += new System.EventHandler(this.panelNewGame_MouseEnter);
+            this.panelNewGame.MouseLeave += new System.EventHandler(this.panelNewGame_MouseLeave);
             // 
             // labelNewGame
             // 
@@ -277,6 +285,8 @@
             this.labelNewGame.Size = new System.Drawing.Size(87, 21);
             this.labelNewGame.TabIndex = 0;
             this.labelNewGame.Text = "New game";
+            this.labelNewGame.Click += new System.EventHandler(this.labelNewGame_Click);
+            this.labelNewGame.MouseEnter += new System.EventHandler(this.labelNewGame_MouseEnter);
             // 
             // panelPlayerVsCpu
             // 
