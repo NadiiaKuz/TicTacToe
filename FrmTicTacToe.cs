@@ -11,6 +11,8 @@ namespace TicTacToe
             InitializeComponent();
         }
 
+        #region closeButton
+
         private void ButtonMouseEnter(Panel buttonPanel)
         {
             buttonPanel.BackColor = Color.Purple;
@@ -43,6 +45,9 @@ namespace TicTacToe
             ButtonMouseEnter(panelCloseButton);
         }
 
+        #endregion
+
+        #region panelCell
         private void CellMouseOver(object sender)
         {
             if (sender is Panel)
@@ -202,5 +207,74 @@ namespace TicTacToe
         {
             CellMouseOut(sender);
         }
+
+        #endregion
+
+        #region panelPlayerVs
+
+        private void RegularButtonMouseOver(Panel panelButton, Label labelButtonText)
+        {
+            panelButton.BackColor = Color.Purple;
+            labelButtonText.ForeColor = Color.Yellow;
+            Cursor = Cursors.Hand;
+        }
+
+        private void RegularButtonMouseOut(Panel panelButton, Label labelButtonText)
+        {
+            panelButton.BackColor = Color.SlateBlue;
+            labelButtonText.ForeColor = Color.Cyan;
+            Cursor = Cursors.Default;
+        }
+
+        private void panelPlayerVsCpu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelPlayerVsCpu_MouseEnter(object sender, EventArgs e)
+        {
+            RegularButtonMouseOver(panelPlayerVsCpu, labelPlayerVsCpu);
+        }
+
+        private void panelPlayerVsCpu_MouseLeave(object sender, EventArgs e)
+        {
+            RegularButtonMouseOut(panelPlayerVsCpu, labelPlayerVsCpu);
+        }
+
+        private void labelPlayerVsCpu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelPlayerVsCpu_MouseEnter(object sender, EventArgs e)
+        {
+            RegularButtonMouseOver(panelPlayerVsCpu, labelPlayerVsCpu);
+        }
+
+        private void panelPlayerVsPlayer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelPlayerVsPlayer_MouseEnter(object sender, EventArgs e)
+        {
+            RegularButtonMouseOver(panelPlayerVsPlayer, labelPlayerVsPlayer);
+        }
+
+        private void panelPlayerVsPlayer_MouseLeave(object sender, EventArgs e)
+        {
+            RegularButtonMouseOut(panelPlayerVsPlayer, labelPlayerVsPlayer);
+        }
+
+        private void labelPlayerVsPlayer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelPlayerVsPlayer_MouseEnter(object sender, EventArgs e)
+        {
+            RegularButtonMouseOver(panelPlayerVsPlayer, labelPlayerVsPlayer);
+        }
+        #endregion
     }
 }

@@ -286,6 +286,9 @@
             this.panelPlayerVsCpu.Name = "panelPlayerVsCpu";
             this.panelPlayerVsCpu.Size = new System.Drawing.Size(236, 60);
             this.panelPlayerVsCpu.TabIndex = 18;
+            this.panelPlayerVsCpu.Click += new System.EventHandler(this.panelPlayerVsCpu_Click);
+            this.panelPlayerVsCpu.MouseEnter += new System.EventHandler(this.panelPlayerVsCpu_MouseEnter);
+            this.panelPlayerVsCpu.MouseLeave += new System.EventHandler(this.panelPlayerVsCpu_MouseLeave);
             // 
             // labelPlayerVsCpu
             // 
@@ -297,6 +300,8 @@
             this.labelPlayerVsCpu.Size = new System.Drawing.Size(179, 25);
             this.labelPlayerVsCpu.TabIndex = 19;
             this.labelPlayerVsCpu.Text = "Player vs Computer";
+            this.labelPlayerVsCpu.Click += new System.EventHandler(this.labelPlayerVsCpu_Click);
+            this.labelPlayerVsCpu.MouseEnter += new System.EventHandler(this.labelPlayerVsCpu_MouseEnter);
             // 
             // panelPlayerVsPlayer
             // 
@@ -306,6 +311,9 @@
             this.panelPlayerVsPlayer.Name = "panelPlayerVsPlayer";
             this.panelPlayerVsPlayer.Size = new System.Drawing.Size(236, 60);
             this.panelPlayerVsPlayer.TabIndex = 19;
+            this.panelPlayerVsPlayer.Click += new System.EventHandler(this.panelPlayerVsPlayer_Click);
+            this.panelPlayerVsPlayer.MouseEnter += new System.EventHandler(this.panelPlayerVsPlayer_MouseEnter);
+            this.panelPlayerVsPlayer.MouseLeave += new System.EventHandler(this.panelPlayerVsPlayer_MouseLeave);
             // 
             // labelPlayerVsPlayer
             // 
@@ -317,6 +325,8 @@
             this.labelPlayerVsPlayer.Size = new System.Drawing.Size(148, 25);
             this.labelPlayerVsPlayer.TabIndex = 20;
             this.labelPlayerVsPlayer.Text = "Player vs Player";
+            this.labelPlayerVsPlayer.Click += new System.EventHandler(this.labelPlayerVsPlayer_Click);
+            this.labelPlayerVsPlayer.MouseEnter += new System.EventHandler(this.labelPlayerVsPlayer_MouseEnter);
             // 
             // panelCloseButton
             // 
