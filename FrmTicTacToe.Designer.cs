@@ -42,7 +42,7 @@
             this.labelPlayer2Name = new System.Windows.Forms.Label();
             this.labelPlayer1Score = new System.Windows.Forms.Label();
             this.labelPlayer2Score = new System.Windows.Forms.Label();
-            this.labelNowTurnls = new System.Windows.Forms.Label();
+            this.labelNowTurnIs = new System.Windows.Forms.Label();
             this.labelWhooseTurn = new System.Windows.Forms.Label();
             this.panelReset = new System.Windows.Forms.Panel();
             this.labelReset = new System.Windows.Forms.Label();
@@ -215,16 +215,16 @@
             this.labelPlayer2Score.TabIndex = 13;
             this.labelPlayer2Score.Text = "0";
             // 
-            // labelNowTurnls
+            // labelNowTurnIs
             // 
-            this.labelNowTurnls.AutoSize = true;
-            this.labelNowTurnls.Font = new System.Drawing.Font("Franklin Gothic Medium", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNowTurnls.ForeColor = System.Drawing.Color.White;
-            this.labelNowTurnls.Location = new System.Drawing.Point(327, 331);
-            this.labelNowTurnls.Name = "labelNowTurnls";
-            this.labelNowTurnls.Size = new System.Drawing.Size(71, 29);
-            this.labelNowTurnls.TabIndex = 14;
-            this.labelNowTurnls.Text = "Move:";
+            this.labelNowTurnIs.AutoSize = true;
+            this.labelNowTurnIs.Font = new System.Drawing.Font("Franklin Gothic Medium", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNowTurnIs.ForeColor = System.Drawing.Color.White;
+            this.labelNowTurnIs.Location = new System.Drawing.Point(327, 331);
+            this.labelNowTurnIs.Name = "labelNowTurnIs";
+            this.labelNowTurnIs.Size = new System.Drawing.Size(71, 29);
+            this.labelNowTurnIs.TabIndex = 14;
+            this.labelNowTurnIs.Text = "Move:";
             // 
             // labelWhooseTurn
             // 
@@ -374,7 +374,7 @@
             this.Controls.Add(this.panelNewGame);
             this.Controls.Add(this.panelReset);
             this.Controls.Add(this.labelWhooseTurn);
-            this.Controls.Add(this.labelNowTurnls);
+            this.Controls.Add(this.labelNowTurnIs);
             this.Controls.Add(this.labelPlayer2Score);
             this.Controls.Add(this.labelPlayer1Score);
             this.Controls.Add(this.labelPlayer2Name);
@@ -393,6 +393,7 @@
             this.Name = "FrmTicTacToe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TicTacToe";
+            this.Load += new System.EventHandler(this.FrmTicTacToe_Load);
             this.panelReset.ResumeLayout(false);
             this.panelReset.PerformLayout();
             this.panelNewGame.ResumeLayout(false);
@@ -424,7 +425,7 @@
         private System.Windows.Forms.Label labelPlayer2Name;
         private System.Windows.Forms.Label labelPlayer1Score;
         private System.Windows.Forms.Label labelPlayer2Score;
-        private System.Windows.Forms.Label labelNowTurnls;
+        private System.Windows.Forms.Label labelNowTurnIs;
         private System.Windows.Forms.Label labelWhooseTurn;
         private System.Windows.Forms.Panel panelReset;
         private System.Windows.Forms.Label labelReset;

@@ -210,7 +210,6 @@ namespace TicTacToe
 
         #endregion
 
-        #region panelPlayerVs
 
         private void RegularButtonMouseOver(Panel panelButton, Label labelButtonText)
         {
@@ -226,6 +225,7 @@ namespace TicTacToe
             Cursor = Cursors.Default;
         }
 
+        #region buttonPlayerVs
         private void panelPlayerVsCpu_Click(object sender, EventArgs e)
         {
 
@@ -277,6 +277,7 @@ namespace TicTacToe
         }
         #endregion
 
+        #region buttonResetAndNewGame
         private void panelReset_Click(object sender, EventArgs e)
         {
 
@@ -325,6 +326,59 @@ namespace TicTacToe
         private void labelNewGame_MouseEnter(object sender, EventArgs e)
         {
             RegularButtonMouseOver(panelNewGame, labelNewGame);
+        }
+
+        #endregion
+
+        private void SetPlayersLabelsAndScoreVisible(bool visible)
+        {
+            labelPlayer1Name.Visible = visible;
+            labelPlayer1Score.Visible = visible;
+            labelPlayer2Name.Visible = visible;
+            labelPlayer2Score.Visible = visible;
+            labelNowTurnIs.Visible = visible;
+            labelWhooseTurn.Visible = visible;
+
+            panelNewGame.Visible = visible;
+            panelReset.Visible = visible;
+        }
+
+        private void FrmTicTacToe_Load(object sender, EventArgs e)
+        {
+            labelPlayer1Name.Text = "?";
+            labelPlayer2Name.Text = "?";
+            SetPlayersLabelsAndScoreVisible(false);
+        }
+
+        private void ShowMainManu(bool show)
+        {
+            labelNewGameTitle.Visible = show;
+            panelPlayerVsCpu.Visible = show;
+            panelPlayerVsPlayer.Visible = show;
+        }
+
+        private void UpdateControls()
+        {
+            ShowMainManu(false);
+
+            labelPlayer1Name.Text = "Player 1"; // engine.GetCurrentPlayer1Title();
+            labelPlayer2Name.Text = "Player 2"; // engine.GetCurrentPlayer2Title();
+            labelWhooseTurn.Text = "N player move"; // engine.GetWhooseTurnTitle();
+
+            labelPlayer1Name.Top = labelNewGameTitle.Top;
+            labelPlayer1Score.Top = labelPlayer1Name.Top;
+            labelPlayer2Name.Top = labelPlayer1Name.Top + 37;
+            labelPlayer2Score.Top = labelPlayer2Name.Top;
+            labelNowTurnIs.Top = labelPlayer2Name.Top + 37;
+            labelWhooseTurn.Top = labelNowTurnIs.Top;
+
+            panelNewGame.Left = labelNowTurnIs.Left + 30;
+            panelNewGame.Top = labelNowTurnIs.Bottom + 15;
+
+            panelReset.Left = panelNewGame.Right + 15;
+            panelReset.Top = panelNewGame.Top;
+
+            SetPlayersLabelsAndScoreVisible(true);
         }
     }
 }
