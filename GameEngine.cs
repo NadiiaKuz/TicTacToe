@@ -39,5 +39,61 @@ namespace TicTacToe
             new char[] { EMPTY_CELL, EMPTY_CELL, EMPTY_CELL },
             new char[] { EMPTY_CELL, EMPTY_CELL, EMPTY_CELL }
         };
+
+        public GameMode GetCurrentMode()
+        {
+            return Mode;
+        }
+
+        public bool IsGameStarted()
+        {
+            return Mode != GameMode.None;
+        }
+
+        public WhooseTurn GetCurrentTurn()
+        {
+            return Turn;
+        }
+
+        public string GetWinner()
+        {
+            return Winner;
+        }
+
+        public bool IsPlayer1HumanTurn()
+        {
+            return Turn == WhooseTurn.Player1Human;
+        }
+
+        public void SetPlayer1HumanTurn()
+        {
+            Turn = WhooseTurn.Player1Human;
+        }
+
+        public void ResetScore()
+        {
+            player1Score = 0;
+            player2Score = 0;
+            numberOfDraws = 0;
+        }
+
+        public void PrepareForNewGame()
+        {
+            Mode = GameMode.None;
+            ResetScore();
+        }
+
+        public void StartGame(GameMode gameMode)
+        {
+            if (gameMode == GameMode.None)
+            {
+                return;
+            }
+
+            ResetScore();
+
+            Mode = gameMode;
+            Turn = WhooseTurn.Player1Human;
+        }
     }
 }
