@@ -145,5 +145,37 @@ namespace TicTacToe
         {
             return player2Score;
         }
+
+        /// <summary>
+        /// Returns a string with the name of the player whose turn it is currently
+        /// </summary>
+        /// <returns>string with player name</returns>
+        public string GetWhooseTurnTitle()
+        {
+            switch (Mode)
+            {
+                case GameMode.PlayerVsCPU:
+                    return Turn == WhooseTurn.Player1Human ? PLAYER_HUMAN_TITLE : PLAYER_CPU_TITLE;
+                case GameMode.PlayerVsPlayer:
+                    return Turn == WhooseTurn.Player1Human ? PLAYER_HUMAN_TITLE + " 1" : PLAYER_HUMAN_TITLE + " 2";
+            }
+            return "";
+        }
+
+        /// <summary>
+        /// Returns a string with the name of the player for whom the next move will be
+        /// </summary>
+        /// <returns>string with player name</returns>
+        public string GetWhooseNextTurnTitle()
+        {
+            switch (Mode)
+            {
+                case GameMode.PlayerVsCPU:
+                    return Turn == WhooseTurn.Player1Human ? PLAYER_CPU_TITLE : PLAYER_HUMAN_TITLE;
+                case GameMode.PlayerVsPlayer:
+                    return Turn == WhooseTurn.Player1Human ? PLAYER_HUMAN_TITLE + " 2" : PLAYER_HUMAN_TITLE + " 1";
+            }
+            return "";
+        }
     }
 }
