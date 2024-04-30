@@ -119,5 +119,31 @@ namespace TicTacToe
             }
             return "";
         }
+
+        public string GetCurrentMarkLabelText()
+        {
+            if (IsPlayer1HumanTurn())
+                return X_MARK.ToString();
+            else
+                return O_MARK.ToString();
+        }
+
+        public Color GetCurrentMarkLabelColor()
+        {
+            if (IsPlayer1HumanTurn())
+                return Color.Gold;
+            else
+                return Color.Fuchsia;
+        }
+
+        public int GetPlayer1Score()
+        {
+            return player1Score;
+        }
+
+        public int GetPlayer2Score()
+        {
+            return player2Score;
+        }
     }
 }
