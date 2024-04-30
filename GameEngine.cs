@@ -95,5 +95,29 @@ namespace TicTacToe
             Mode = gameMode;
             Turn = WhooseTurn.Player1Human;
         }
+
+        public string GetCurrentPlayer1Title()
+        {
+            switch (Mode)
+            {
+                case GameMode.PlayerVsCPU:
+                    return PLAYER_HUMAN_TITLE;
+                case GameMode.PlayerVsPlayer:
+                    return PLAYER_HUMAN_TITLE + " 1";
+            }
+            return "";
+        }
+
+        public string GetCurrentPlayer2Title()
+        {
+            switch (Mode)
+            {
+                case GameMode.PlayerVsCPU:
+                    return PLAYER_CPU_TITLE;
+                case GameMode.PlayerVsPlayer:
+                    return PLAYER_HUMAN_TITLE + " 2";
+            }
+            return "";
+        }
     }
 }
