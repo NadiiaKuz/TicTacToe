@@ -232,7 +232,30 @@ namespace TicTacToe
 
                 if (currentSumHorizontal == 2 && freeCol >= 0)
                 {
-                    return Cell.From(row, freeCol);
+                    return Cell.From(row, freeCol); 
+                }
+            }
+            return Cell.ErrorCell();
+        }
+
+        private Cell GetVerticalCellForAttackOrDefense(char checkMark)
+        {
+            for (int col = 0; col < 3; col++)
+            {
+                int currentSumVert = 0;
+                int freeRow = -1;
+                for (int row = 0; row < 3; row++)
+                {
+                    if (gameField[row][col] == EMPTY_CELL)
+                    {
+                        freeRow = row;
+                    }
+                    currentSumVert += gameField[row][col] == checkMark ? 1 : 0;
+                }
+
+                if (currentSumVert == 2 && freeRow >= 0)
+                {
+                    return Cell.From(freeRow, col);
                 }
             }
             return Cell.ErrorCell();
