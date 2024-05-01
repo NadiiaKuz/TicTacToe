@@ -260,5 +260,56 @@ namespace TicTacToe
             }
             return Cell.ErrorCell();
         }
+
+        private Cell GetDiagonalCellForAttackOrDefense(char checkMark)
+        {
+            // diagonal 1:
+            // * - -
+            // - * -
+            // - - *
+            // cell coordinates: (0; 0), (1; 1), (2; 2)
+            // formula for calculating column by row: <column> = row
+
+            // diagonal 2:
+            // - - *
+            // - * -
+            // * - -
+            // cell coordinates: (0; 2), (1; 1), (2, 0)
+            // formula for calculating column by row: <column> = 2 - row
+
+            int diagonal1Sum = 0;
+            int diagonal2Sum = 0;
+            int freeCol1 = -1, freeRow1 = -1;
+            int freeCol2 = -1, freeRow2 = -1;
+
+            for (int row = 0; row<3; row++)
+            {
+                diagonal1Sum += gameField[row][row] == checkMark ? 1 : 0;
+                diagonal2Sum += gameField[row][2 - row] == checkMark ? 1 : 0;
+
+                if (gameField[row][row] == EMPTY_CELL)
+                {
+                    freeCol1 = row;
+                    freeRow1 = row;
+                }
+
+                if (gameField[row][2 - row] == EMPTY_CELL)
+                {
+                    freeCol2 = 2 - row;
+                    freeRow2 = row;
+                }
+
+                if (diagonal1Sum == 2 && freeRow1 >= 0 && freeCol1 >= 0)
+                {
+                    return Cell.From(freeRow1, freeCol1);
+                }
+                else if (diagonal2Sum == 2 && freeRow2 >= 0 && freeCol2 >= 0)
+                {
+                    return Cell.From(freeRow2, freeCol2);
+                }
+            }
+
+            return Cell.ErrorCell();
+        }
     }
 }
