@@ -177,5 +177,42 @@ namespace TicTacToe
             }
             return "";
         }
+
+        /// <summary>
+        /// Clears the playing field by filling each cell with a sign
+        /// of an empty cell (the default is the '-' symbol)
+        /// </summary>
+        
+        public void ClearGameField()
+        {
+            for (int row = 0; row < 3; row++)
+            {
+                for (int col = 0; col < 3; col++)
+                {
+                    gameField[row][col] = EMPTY_CELL;
+                }
+            }
+        }
+
+        public void MakeTurnAndFillGameFieldCell(int row, int column)
+        {
+            if (IsPlayer1HumanTurn())
+            {
+                gameField[row][column] = X_MARK;
+                if (Mode == GameMode.PlayerVsCPU)
+                {
+                    Turn = WhooseTurn.Player2CPU;
+                }
+                else if (Mode == GameMode.PlayerVsPlayer)
+                {
+                    Turn = WhooseTurn.Player2Human;
+                }
+            }
+            else
+            {
+                gameField[row][column] = O_MARK;
+                Turn = WhooseTurn.Player1Human;
+            }
+        }
     }
 }
