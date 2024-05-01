@@ -214,5 +214,28 @@ namespace TicTacToe
                 Turn = WhooseTurn.Player1Human;
             }
         }
+
+        private Cell GetHorizontalCellForAttackOrDefense(char checkMark)
+        {
+            for (int row = 0; row < 3; row++)
+            {
+                int currentSumHorizontal = 0;
+                int freeCol = -1;
+                for (int col = 0; col < 3; col++)
+                {
+                    if (gameField[row][col] == EMPTY_CELL)
+                    {
+                        freeCol = col;
+                    }
+                    currentSumHorizontal += gameField[row][col] == checkMark ? 1 : 0;
+                }
+
+                if (currentSumHorizontal == 2 && freeCol >= 0)
+                {
+                    return Cell.From(row, freeCol);
+                }
+            }
+            return Cell.ErrorCell();
+        }
     }
 }
