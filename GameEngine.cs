@@ -395,5 +395,40 @@ namespace TicTacToe
             // There are no acceptable cells for defense - we return a special cell with an error sign
             return Cell.ErrorCell();
         }
+
+        private Cell ComputerTrySelectRandomFreeCell()
+        {
+            Random random = new Random();
+            int randomRow, randomCol;
+            const int max_attempts = 1000;
+
+            int current_attempt = 0;
+            do
+            {
+                randomRow = random.Next(3);
+                randomCol = random.Next(3);
+                current_attempt++;
+            }
+            while (gameField[randomRow][randomCol] != EMPTY_CELL && current_attempt <= max_attempts);
+
+            if (current_attempt > max_attempts)
+            {
+                // We were unable to select a random free cell in 1000 attempts, so we manually select the nearest cell
+                // by simply searching through all the cells of the playing field
+                for (int row = 0; row < 3; row++)
+                {
+                    for (int col = 0; col < 3; col++)
+                    {
+                        if (gameField[row][col] == EMPTY_CELL)
+                        {
+                            // cell is free, we return it immediately
+                            return Cell.From(row, col);
+                        }
+                    }
+                }
+            }
+
+            return Cell.From(randomRow, randomCol);
+        }
     }
 }
