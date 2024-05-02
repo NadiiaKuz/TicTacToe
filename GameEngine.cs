@@ -311,5 +311,89 @@ namespace TicTacToe
 
             return Cell.ErrorCell();
         }
+
+        private Cell ComputerTryAttackHorizontalCell()
+        {
+            return GetHorizontalCellForAttackOrDefense(O_MARK);
+        }
+
+        private Cell ComputerTryAttackVerticalCell()
+        {
+            return GetVerticalCellForAttackOrDefense(O_MARK);
+        }
+
+        private Cell ComputerTryAttackDiagonalCell()
+        {
+            return GetDiagonalCellForAttackOrDefense(O_MARK);
+        }
+
+        private Cell ComputerTryDefendHorizontalCell()
+        {
+            return GetHorizontalCellForAttackOrDefense(X_MARK);
+        }
+
+        private Cell ComputerTryDefendVerticalCell()
+        {
+            return GetVerticalCellForAttackOrDefense(X_MARK);
+        }
+
+        private Cell ComputerTryDefendDiagonalCell()
+        {
+            return GetDiagonalCellForAttackOrDefense(X_MARK);
+        }
+
+        private Cell ComputerTryAttackCell()
+        {
+            // We are trying to attack on horizontal cells
+            Cell attackedHorizontalCell = ComputerTryAttackHorizontalCell();
+            if (!attackedHorizontalCell.IsErrorCell())
+            {
+                return attackedHorizontalCell;
+            }
+
+            // We are trying to attack on vertical cells
+            Cell attackedVerticalCell = ComputerTryAttackVerticalCell();
+            if (!attackedVerticalCell.IsErrorCell())
+            {
+                return attackedVerticalCell;
+            }
+
+            // We are trying to attack on diagonal cells
+            Cell attackedDiagonalCell = ComputerTryAttackDiagonalCell();
+            if (!attackedDiagonalCell.IsErrorCell())
+            {
+                return attackedDiagonalCell;
+            }
+
+            // There are no acceptable cells for attack - we return a special cell with an error sign
+            return Cell.ErrorCell();
+        }
+
+        private Cell ComputerTryDefendCell()
+        {
+            // We are trying to defend on horizontal cells
+            Cell defendedHorizontalCell = ComputerTryDefendHorizontalCell();
+            if (!defendedHorizontalCell.IsErrorCell())
+            {
+                return defendedHorizontalCell;
+            }
+
+            // We are trying to defend on vertical cells
+            Cell defendedVerticalCell = ComputerTryDefendVerticalCell();
+            if (!defendedVerticalCell.IsErrorCell())
+            {
+                return defendedVerticalCell;
+            }
+
+            // We are trying to defend on diagonal cells
+            Cell defendedDiagonalCell = ComputerTryDefendDiagonalCell();
+            if (!defendedDiagonalCell.IsErrorCell())
+            {
+                return defendedDiagonalCell;
+            }
+
+            // There are no acceptable cells for defense - we return a special cell with an error sign
+            return Cell.ErrorCell();
+        }
     }
 }
