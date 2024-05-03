@@ -600,5 +600,29 @@ namespace TicTacToe
 
             return false;
         }
+
+        /// <summary>
+        /// Returns true if one of the players has won
+        /// </summary>
+        /// <returns>true if one of the players wins, otherwise false</returns>
+        public bool IsWin()
+        {
+            if (CheckWinOnHorizontalCellsAndUpdateWinner())
+            {
+                return true;
+            }
+
+            if (CheckWinOnVerticalCellsAndUpdateWinner())
+            {
+                return true;
+            }
+
+            if (CheckWinOnDiagonalCellsAndUpdateWinner())
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
