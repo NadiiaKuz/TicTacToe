@@ -477,5 +477,128 @@ namespace TicTacToe
 
             return Cell.ErrorCell();
         }
+
+        /// <summary>
+        /// Returns true and increments the draw counter if another draw occurs.        
+        /// </summary>
+        /// <returns>true if there is a draw, otherwise false</returns>
+        public bool IsDraw()
+        {
+            bool isNoFreeCellsLeft = !IsAnyFreeCell();
+            if (isNoFreeCellsLeft)
+            {
+                numberOfDraws++;
+            }
+            return isNoFreeCellsLeft;
+        }
+
+        /// <summary>
+        /// Checks whether any of the players have won in the horizontal cells of the playing field
+        /// </summary>
+        /// <returns></returns>
+        private bool CheckWinOnHorizontalCellsAndUpdateWinner()
+        {
+            for (int row = 0; row < 3; row++)
+            {
+                int sumX = 0; int sumO = 0;
+                for (int col = 0; col < 3; col++)
+                {
+                    sumX += gameField[row][col] == X_MARK ? 1 : 0;
+                    sumO += gameField[row][col] == O_MARK ? 1 : 0;
+                }
+                if (sumX == 3)
+                {
+                    // X win
+                    Winner = Mode == GameMode.PlayerVsPlayer ? PLAYER_HUMAN_TITLE + " 1" : PLAYER_HUMAN_TITLE;
+                    player1Score++;
+                    return true;
+                }
+                else if (sumO == 3)
+                {
+                    // O win
+                    Winner = Mode == GameMode.PlayerVsPlayer ? PLAYER_HUMAN_TITLE + " 2" : PLAYER_CPU_TITLE;
+                    player2Score++;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Checks whether any of the players have won in the vertical cells of the playing field
+        /// </summary>
+        /// <returns></returns>
+        private bool CheckWinOnVerticalCellsAndUpdateWinner()
+        {
+            for (int col = 0; col < 3; col++)
+            {
+                int sumX = 0; int sumO = 0;
+                for (int row = 0; row < 3; row++)
+                {
+                    sumX += gameField[row][col] == X_MARK ? 1 : 0;
+                    sumO += gameField[row][col] == O_MARK ? 1 : 0;
+                }
+
+                if (sumX == 3)
+                {
+                    // X win
+                    Winner = Mode == GameMode.PlayerVsPlayer ? PLAYER_HUMAN_TITLE + " 1" : PLAYER_HUMAN_TITLE;
+                    player1Score++;
+                    return true;
+                }
+                else if (sumO == 3)
+                {
+                    // O win
+                    Winner = Mode == GameMode.PlayerVsPlayer ? PLAYER_HUMAN_TITLE + " 2" : PLAYER_CPU_TITLE;
+                    player2Score++;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Checks whether any of the players have won on the diagonal cells of the playing field
+        /// </summary>
+        /// <returns></returns>
+        private bool CheckWinOnDiagonalCellsAndUpdateWinner()
+        {
+            int diag1sumX = 0, diag2sumX = 0;
+            int diag1sumO = 0, diag2sumO = 0;
+            for (int row = 0; row < 3; row++)
+            {
+                if (gameField[row][row] == O_MARK)
+                {
+                    diag1sumO++;
+                }
+                if (gameField[row][row] == X_MARK)
+                {
+                    diag1sumX++;
+                }
+                if (gameField[row][2 - row] == O_MARK)
+                {
+                    diag2sumO++;
+                }
+                if (gameField[row][2 - row] == X_MARK)
+                {
+                    diag2sumX++;
+                }
+            }
+
+            if (diag1sumX == 3 || diag2sumX == 3)
+            {
+                Winner = Mode == GameMode.PlayerVsPlayer ? PLAYER_HUMAN_TITLE + " 1" : PLAYER_HUMAN_TITLE;
+                player1Score++;
+                return true;
+            }
+            else if (diag1sumO == 3 || diag2sumO == 3)
+            {
+                Winner = Mode == GameMode.PlayerVsPlayer ? PLAYER_HUMAN_TITLE + " 2" : PLAYER_CPU_TITLE;
+                player2Score++;
+                return true;
+            }
+
+            return false;
+        }
     }
 }
