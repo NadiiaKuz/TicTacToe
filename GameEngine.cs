@@ -430,5 +430,52 @@ namespace TicTacToe
 
             return Cell.From(randomRow, randomCol);
         }
+
+        /// <summary>
+        /// Returns true if there is at least one unoccupied cell on the playing field and false otherwise
+        /// </summary>
+        /// <returns>true if there is at least one free cell on the field, otherwise false</returns>
+        public bool IsAnyFreeCell()
+        {
+            for (int row = 0; row < 3; row++)
+            {
+                for (int col = 0; col < 3; col++)
+                {
+                    if (gameField[row][col] == EMPTY_CELL)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public Cell MakeComputerTurnAndGetCell()
+        {
+            // Strategy 1 - the computer tries to attack first if it has only one move left to win
+            Cell attackedCell = ComputerTryAttackCell();
+            if (!attackedCell.IsErrorCell())
+            {
+                return attackedCell;
+            }
+
+            // Strategy 2 - if there are no acceptable squares to attack,
+            // the computer will try to find squares to defend to prevent the human from winning
+            Cell defendedCell = ComputerTryDefendCell();
+            if (!defendedCell.IsErrorCell())
+            {
+                return defendedCell;
+            }
+
+            // Strategy 3 - the computer does not have acceptable cells for attack and defense,
+            // so it needs to choose an arbitrary free cell for its next move
+            if (IsAnyFreeCell())
+            {
+                Cell randomFreeCell = ComputerTrySelectRandomFreeCell();
+                return randomFreeCell;
+            }
+
+            return Cell.ErrorCell();
+        }
     }
 }
