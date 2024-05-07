@@ -6,9 +6,49 @@ namespace TicTacToe
 {
     public partial class FrmTicTacToe : Form
     {
+        private GameEngine engine = new GameEngine();
+
         public FrmTicTacToe()
         {
             InitializeComponent();
+        }
+
+        private Panel GetPanelCellControlByCell(Cell cell)
+        {
+            if (cell == null || !cell.IsValidGameFieldCell())
+            {
+                return null;
+            }
+            string panelCtrlName = "panelCell" + cell.Row + "_" + cell.Column;
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl.Name.Equals(panelCtrlName) && ctrl is Panel)
+                {
+                    return (Panel)ctrl;
+                }
+            }
+
+            return null;
+        }
+
+        private void ClearGameField()
+        {
+            engine.ClearGameField();
+
+            for (int row = 0; row < 3; row++)
+            {
+                for (int col = 0; col < 3; col++)
+                {
+                    Panel panelCell = GetPanelCellControlByCell(Cell.From(row, col));
+                    if (panelCell != null)
+                    {
+                        panelCell.Controls.Clear();
+                    }
+                }
+            }
+
+            engine.SetPlayer1HumanTurn();
+            labelWhooseTurn.Text = engine.GetWhooseTurnTitle();
         }
 
         #region closeButton
