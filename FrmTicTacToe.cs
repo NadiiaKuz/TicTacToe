@@ -110,7 +110,77 @@ namespace TicTacToe
 
         private void FillCell(Panel panel, int row, int column)
         {
+            if (!engine.IsGameStarted())
+            {
+                // if the game has not started, do not draw anything on the playing field and just return
+                return;
+            }
 
+            Label markLabel = new Label();
+            markLabel.Font = new Font(FontFamily.GenericMonospace, 60, FontStyle.Bold);
+            markLabel.AutoSize = true;
+            markLabel.Text = engine.GetCurrentMarkLabelText();
+            markLabel.ForeColor = engine.GetCurrentMarkLabelColor();
+
+            labelWhooseTurn.Text = engine.GetWhooseNextTurnTitle();
+
+            engine.MakeTurnAndFillGameFieldCell(row, column);
+
+            panel.Controls.Add(markLabel);
+
+            if (engine.IsWin())
+            {
+                // The engine returned the result that one of the players won
+                MessageBox.Show("Victory! " + engine.GetWinner(), "TacTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                labelPlayer1Score.Text = engine.GetPlayer1Score().ToString();
+                labelPlayer2Score.Text = engine.GetPlayer2Score().ToString();
+                ClearGameField();
+            }
+            else if (engine.IsDraw())
+            {
+                // The engine returned the result that there was a draw
+                MessageBox.Show("Draw!", "TacTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearGameField();
+            }
+            else
+            {
+                // There are still free cells left on the field.
+                // If it’s the computer’s move, we call the engine to determine the cell that the computer will choose to move
+                if (engine.GetCurrentTurn() == GameEngine.WhooseTurn.Player2CPU)
+                {
+                    Cell cellChosenByCpu = engine.MakeComputerTurnAndGetCell();
+                    if (!cellChosenByCpu.IsErrorCell())
+                    {
+                        Panel panelCell = GetPanelCellControlByCell(cellChosenByCpu);
+                        if (panelCell != null)
+                        {
+                            FillCell(panelCell, cellChosenByCpu.Row, cellChosenByCpu.Column);
+                        }
+                        else
+                        {
+                            // something went wrong, we could not find the correct Panel element based on the cell selected by the computer
+                            // show the error
+                            MessageBox.Show(
+                                "An error occurred: the cell selected by the computer must not be null!",
+                                "TicTacToe",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error
+                            );
+                        }
+                    }
+                    else
+                    {
+                        // something went wrong, the engine returned the special cell, although this should not have happened.
+                        // show the error
+                        MessageBox.Show(
+                            "An error occurred: the computer could not select a cell to move!",
+                            "TicTacToe",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    }
+                }
+            }
         }
 
         private void panelCell0_0_Click(object sender, EventArgs e)
@@ -130,7 +200,7 @@ namespace TicTacToe
 
         private void panelCell0_1_Click(object sender, EventArgs e)
         {
-            FillCell((Panel)sender, 0, 0);
+            FillCell((Panel)sender, 0, 1);
         }
 
         private void panelCell0_1_MouseEnter(object sender, EventArgs e)
@@ -145,7 +215,7 @@ namespace TicTacToe
 
         private void panelCell0_2_Click(object sender, EventArgs e)
         {
-            FillCell((Panel)sender, 0, 0);
+            FillCell((Panel)sender, 0, 2);
         }
 
         private void panelCell0_2_MouseEnter(object sender, EventArgs e)
@@ -160,7 +230,7 @@ namespace TicTacToe
 
         private void panelCell1_0_Click(object sender, EventArgs e)
         {
-            FillCell((Panel)sender, 0, 0);
+            FillCell((Panel)sender, 1, 0);
         }
 
         private void panelCell1_0_MouseEnter(object sender, EventArgs e)
@@ -175,7 +245,7 @@ namespace TicTacToe
 
         private void panelCell1_1_Click(object sender, EventArgs e)
         {
-            FillCell((Panel)sender, 0, 0);
+            FillCell((Panel)sender, 1, 1);
         }
 
         private void panelCell1_1_MouseEnter(object sender, EventArgs e)
@@ -190,7 +260,7 @@ namespace TicTacToe
 
         private void panelCell1_2_Click(object sender, EventArgs e)
         {
-            FillCell((Panel)sender, 0, 0);
+            FillCell((Panel)sender, 1, 2);
         }
 
         private void panelCell1_2_MouseEnter(object sender, EventArgs e)
@@ -205,7 +275,7 @@ namespace TicTacToe
 
         private void panelCell2_0_Click(object sender, EventArgs e)
         {
-            FillCell((Panel)sender, 0, 0);
+            FillCell((Panel)sender, 2, 0);
         }
 
         private void panelCell2_0_MouseEnter(object sender, EventArgs e)
@@ -220,7 +290,7 @@ namespace TicTacToe
 
         private void panelCell2_1_Click(object sender, EventArgs e)
         {
-            FillCell((Panel)sender, 0, 0);
+            FillCell((Panel)sender, 2, 1);
         }
 
         private void panelCell2_1_MouseEnter(object sender, EventArgs e)
@@ -235,7 +305,7 @@ namespace TicTacToe
 
         private void panelCell2_2_Click(object sender, EventArgs e)
         {
-            FillCell((Panel)sender, 0, 0);
+            FillCell((Panel)sender, 2, 2);
         }
 
         private void panelCell2_2_MouseEnter(object sender, EventArgs e)
@@ -266,9 +336,15 @@ namespace TicTacToe
         }
 
         #region buttonPlayerVs
+        private void StartNewGameInSelectedMode(GameEngine.GameMode selectedMode)
+        {
+            engine.StartGame(selectedMode);
+            UpdateControls();
+        }
+
         private void panelPlayerVsCpu_Click(object sender, EventArgs e)
         {
-
+            StartNewGameInSelectedMode(GameEngine.GameMode.PlayerVsCPU);
         }
 
         private void panelPlayerVsCpu_MouseEnter(object sender, EventArgs e)
@@ -283,7 +359,7 @@ namespace TicTacToe
 
         private void labelPlayerVsCpu_Click(object sender, EventArgs e)
         {
-
+            StartNewGameInSelectedMode(GameEngine.GameMode.PlayerVsCPU);
         }
 
         private void labelPlayerVsCpu_MouseEnter(object sender, EventArgs e)
@@ -293,7 +369,7 @@ namespace TicTacToe
 
         private void panelPlayerVsPlayer_Click(object sender, EventArgs e)
         {
-
+            StartNewGameInSelectedMode(GameEngine.GameMode.PlayerVsPlayer);
         }
 
         private void panelPlayerVsPlayer_MouseEnter(object sender, EventArgs e)
@@ -308,7 +384,7 @@ namespace TicTacToe
 
         private void labelPlayerVsPlayer_Click(object sender, EventArgs e)
         {
-
+            StartNewGameInSelectedMode(GameEngine.GameMode.PlayerVsPlayer);
         }
 
         private void labelPlayerVsPlayer_MouseEnter(object sender, EventArgs e)
@@ -318,9 +394,18 @@ namespace TicTacToe
         #endregion
 
         #region buttonResetAndNewGame
+
+        private void ResetGame()
+        {
+            ClearGameField();
+            engine.StartGame(engine.GetCurrentMode());
+            labelPlayer1Score.Text = engine.GetPlayer1Score().ToString();
+            labelPlayer2Score.Text = engine.GetPlayer2Score().ToString();
+            UpdateControls();
+        }
         private void panelReset_Click(object sender, EventArgs e)
         {
-
+            ResetGame();
         }
 
         private void panelReset_MouseEnter(object sender, EventArgs e)
@@ -335,7 +420,7 @@ namespace TicTacToe
 
         private void labelReset_Click(object sender, EventArgs e)
         {
-
+            ResetGame();
         }
 
         private void labelReset_MouseEnter(object sender, EventArgs e)
@@ -343,9 +428,21 @@ namespace TicTacToe
             RegularButtonMouseOver(panelReset, labelReset);
         }
 
+        private void StartNewGame()
+        {
+            ClearGameField();
+            engine.PrepareForNewGame();
+
+            labelPlayer1Score.Text = engine.GetPlayer1Score().ToString();
+            labelPlayer2Score.Text = engine.GetPlayer2Score().ToString();
+
+            ShowMainMenu(true);
+            SetPlayersLabelsAndScoreVisible(false);
+        }
+
         private void panelNewGame_Click(object sender, EventArgs e)
         {
-
+            StartNewGame();
         }
 
         private void panelNewGame_MouseEnter(object sender, EventArgs e)
@@ -360,7 +457,7 @@ namespace TicTacToe
 
         private void labelNewGame_Click(object sender, EventArgs e)
         {
-
+            StartNewGame();
         }
 
         private void labelNewGame_MouseEnter(object sender, EventArgs e)
@@ -390,7 +487,7 @@ namespace TicTacToe
             SetPlayersLabelsAndScoreVisible(false);
         }
 
-        private void ShowMainManu(bool show)
+        private void ShowMainMenu(bool show)
         {
             labelNewGameTitle.Visible = show;
             panelPlayerVsCpu.Visible = show;
@@ -399,11 +496,11 @@ namespace TicTacToe
 
         private void UpdateControls()
         {
-            ShowMainManu(false);
+            ShowMainMenu(false);
 
-            labelPlayer1Name.Text = "Player 1"; // engine.GetCurrentPlayer1Title();
-            labelPlayer2Name.Text = "Player 2"; // engine.GetCurrentPlayer2Title();
-            labelWhooseTurn.Text = "N player move"; // engine.GetWhooseTurnTitle();
+            labelPlayer1Name.Text = engine.GetCurrentPlayer1Title();
+            labelPlayer2Name.Text = engine.GetCurrentPlayer2Title();
+            labelWhooseTurn.Text = engine.GetWhooseTurnTitle();
 
             labelPlayer1Name.Top = labelNewGameTitle.Top;
             labelPlayer1Score.Top = labelPlayer1Name.Top;
